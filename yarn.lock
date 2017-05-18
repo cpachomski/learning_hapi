@@ -711,6 +711,15 @@ joi@10.x.x:
     items "2.x.x"
     topo "2.x.x"
 
+joi@^10.5.0:
+  version "10.5.0"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-10.5.0.tgz#4e3172a199c993b36aabe5a987b00b1b541c3059"
+  dependencies:
+    hoek "4.x.x"
+    isemail "2.x.x"
+    items "2.x.x"
+    topo "2.x.x"
+
 jsbn@~0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
