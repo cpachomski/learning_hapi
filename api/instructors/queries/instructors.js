@@ -29,6 +29,10 @@ const getGithubImage = (request, reply) => {
 		instructor => instructor.slug == slug
 	).github
 
+	if (!githubUser) {
+		reply()
+	}
+
 	const options = {
 		headers: { 'User-Agent': 'chris-is-learning'  },
 		json: true
@@ -38,6 +42,9 @@ const getGithubImage = (request, reply) => {
 		`https://api.github.com/users/${githubUser}`,
 		options,
 		(err, response, payload) => {
+			if (err) {
+				return reply(Boom.badRequest('Unable to retrieve github avatar.'))
+			}
 			reply(payload.avatar_url)
 		}
 	)
