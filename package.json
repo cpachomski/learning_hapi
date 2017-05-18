@@ -1,0 +1,16 @@
+{
+  "name": "learning_hapi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "boom": "^4.3.1",
+    "hapi": "^16.1.1",
+    "lodash": "^4.17.4",
+    "nodemon": "^1.11.0",
+    "wreck": "^12.2.0"
+  },
+  "scripts": {
+    "start": "PORT=5000 nodemon server.js "
+  }
+}
