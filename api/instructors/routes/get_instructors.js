@@ -1,13 +1,19 @@
 'use strict'
 
+const Boom = require('boom')
 const instructorData = require('../../../instructors')
 const sortBy = require('lodash').sortBy
 
 module.exports = {
 	method: 'GET',
-	path: '/api/instructors/all',
+	path: '/api/instructors',
 	config: {
 		handler: (request, reply) => {
+
+			if (!instructorData.length) {
+				return reply(Boom.notFound('No instructors found!'))
+			}
+
 			const trimmedData = instructorData.map((instructor) => {
 				return {
 					id: instructor.id,

@@ -1,6 +1,8 @@
 'use strict'
 
 const Wreck = require('wreck')
+const Boom = require('boom')
+
 let instructorData = require('../../../instructors')
 
 const verifyUniqueInstructor = (request, reply) => {
@@ -10,7 +12,7 @@ const verifyUniqueInstructor = (request, reply) => {
 	)
 
 	if (existingInstructor) {
-		return reply({ message: 'Instructor exists'})
+		return reply(Boom.badRequest('Instructor exists already so bug off!'))
 	} else {
 		return reply();
 	}
