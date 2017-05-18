@@ -9,9 +9,9 @@ module.exports = {
 	method: 'GET',
 	path: '/api/instructors/{slug}',
 	config: {
-		// pre: [
-		// 	{ method: query.getGithubImage, assign: 'image' }
-		// ],
+		pre: [
+			{ method: query.getGithubImage, assign: 'image' }
+		],
 		handler: (request, reply) => {
 			let instructor = instructorData.find((match) => {
 				return match.slug === request.params.slug	
