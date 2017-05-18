@@ -2,6 +2,7 @@
 
 const instructorData = require('../../../instructors')
 const query = require('../queries/instructors')
+const { payloadValidator } = require('../validations/post_instructor')
 
 module.exports = {
 	method: 'POST',
@@ -11,6 +12,9 @@ module.exports = {
 			{ method: query.verifyUniqueInstructor },
 			{ method: query.createInstructorSlug, assign: 'slug' }
 		],
+		validate: {
+			payload: payloadValidator
+		},
 		handler: (request, reply) => {
 			let submittedData = request.payload
 			submittedData.id = instructorData.length + 1

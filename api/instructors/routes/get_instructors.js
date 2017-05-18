@@ -3,11 +3,15 @@
 const Boom = require('boom')
 const instructorData = require('../../../instructors')
 const sortBy = require('lodash').sortBy
+const { queryValidator } = require('../validations/get_instructors')
 
 module.exports = {
 	method: 'GET',
 	path: '/api/instructors',
 	config: {
+		validate: {
+			query: queryValidator
+		},
 		handler: (request, reply) => {
 
 			if (!instructorData.length) {
